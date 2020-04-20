@@ -2,6 +2,10 @@
 #define DATABASECONNECTION_H
 
 #include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
+
 
 class Databaseconnection {
 public:
@@ -12,6 +16,7 @@ public:
     ~Databaseconnection();
 private:
     QSqlDatabase db;
+    void createDatabase();
 };
 
 #endif // DATABASECONNECTION_H
