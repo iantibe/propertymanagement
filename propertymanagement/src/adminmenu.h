@@ -5,9 +5,11 @@
 
 class Adminmenu : Menu {
 public:
-    vector<Menuitem> buildAdminMenu();
+
     Adminmenu(string);
     void display() override;
+private:
+    vector<Menuitem> buildAdminMenu();
 };
 
 #endif // ADMINMENU_H

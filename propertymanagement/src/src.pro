@@ -21,6 +21,7 @@ SOURCES += \
         adminuser.cpp \
         building.cpp \
         databaseconnection.cpp \
+        error.cpp \
         insertdata.cpp \
         landlordmenu.cpp \
         landlorduser.cpp \
@@ -59,6 +60,7 @@ HEADERS += \
     building.h \
     constants.h \
     databaseconnection.h \
+    error.h \
     insertdata.h \
     landlordmenu.h \
     landlorduser.h \

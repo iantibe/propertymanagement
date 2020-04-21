@@ -6,8 +6,10 @@
 
 class Selectdata : Databaseconnection{
 public:
-    User getUserbyName(string);
+    User getUserbyScreenName(string);
+    int getUserType(User);
     Selectdata();
+
 };
 
 

@@ -10,7 +10,6 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     //QCoreApplication a(argc, argv);
-
     bool exitFlag = false;
 
     Databaseconnection connection;
@@ -20,9 +19,9 @@ int main(int argc, char *argv[])
 
     while(!exitFlag){
         User u = loginout.init_Loginout();
-
-        if(!(u.getUserid() == 0)){
+       if(!(u.getUserid() == 0)){
             Session session(u);
+            session.init_Session();
         }else{
            exitFlag = true;
         }

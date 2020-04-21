@@ -3,6 +3,7 @@ release/adminmenu.o
 release/adminuser.o
 release/building.o
 release/databaseconnection.o
+release/error.o
 release/insertdata.o
 release/landlordmenu.o
 release/landlorduser.o

@@ -1,7 +1,9 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#include <array>
 #include <QSqlDatabase>
+#include <string>
 
 using namespace std;
 
@@ -17,5 +19,17 @@ enum Requesttype {Pluming, Electrical, Finishes, Lighting, Flooring, Other};
 //item to type to exit program
 
 const string exitWord = "exit";
+
+//landlord menu def
+
+const array<string, 9> landlordlist {"Add Teant", "Remove Tenant","Add Building","View Maintenance Request","Update Maintenance Request","View Message","Send Message","Finance","Exit" };
+
+//tenant menu def
+
+const array<string, 7> tenantlist{"Pay Rent","View Rent Transactions","Maintenance Request", "View Maintenance Requests", "Send Message", "View Messasge","Exit"};
+
+//admin menu def
+
+const array<string,3> adminlist {"Display Error Log", "Set Landlord Message user","Exit"};
 
 #endif // CONSTANTS_H

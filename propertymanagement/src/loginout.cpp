@@ -4,16 +4,17 @@
 #include "Tenantuser.h"
 
 
+
 Loginout::Loginout(){
 
 }
 
 User Loginout::init_Loginout() {
-    //be sure to return a user object with userid zero for exiting program
     string user;
     string passwordToTest;
     Loginscreen loginscreen;
     bool exitFlag = false;
+    User outputUser(0,"null","null");
 
     while(!exitFlag){
         loginscreen.displayScreen();
@@ -21,18 +22,17 @@ User Loginout::init_Loginout() {
         cin >> user;
 
         if(user == exitWord){
-        User exitUser(0,"null","null");
-            return exitUser;
+        exitFlag = true;
+
         }else{
             cout << "password: ";
             cin >> passwordToTest;
 
             if(password.validatePassword(user,passwordToTest)){
-                //figure out user type and create valid user object to return
-                cout << "it worked!";
+                Selectdata instance;
+                User validUser(instance.getUserbyScreenName(user));
+                outputUser = validUser;
                 exitFlag = true;
-
-
             }else {
                 cout << "Invalid Username or Password" << endl;
             }
@@ -42,5 +42,5 @@ User Loginout::init_Loginout() {
 
   }
 
-
+        return outputUser;
 }

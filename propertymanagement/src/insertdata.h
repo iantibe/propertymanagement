@@ -6,12 +6,15 @@
 #include "building.h"
 #include "rentalunit.h"
 #include "tenant.h"
+#include "error.h"
 
 class Insertdata : Databaseconnection {
+public:
     void saveBuilding(Building &);
     void saveRentalUnit(Rentalunit &);
     void saveTenant(class Tenant &);
     void saveUser(User &);
+    void saveError(string);
     Insertdata();
 };
 

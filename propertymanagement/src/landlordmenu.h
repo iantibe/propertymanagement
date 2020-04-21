@@ -2,6 +2,7 @@
 #define LANDLORDMENU_H
 
 #include "menu.h"
+#include <constants.h>
 
 class Landlordmenu : Menu {
 public:
