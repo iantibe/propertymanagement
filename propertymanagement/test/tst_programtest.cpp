@@ -5,6 +5,7 @@
 #include <QSqlError>
 #include <iostream>
 
+
 class programtest : public QObject
 {
     Q_OBJECT
@@ -16,6 +17,7 @@ public:
 
 private slots:
     void test_connection();
+
 
 };
 
@@ -38,6 +40,7 @@ void programtest::test_connection()
     QVERIFY(database.checkConnectionOpen());
 
 }
+
 
 QTEST_APPLESS_MAIN(programtest)
 

@@ -46,7 +46,7 @@ void Databaseconnection::createDatabase(){
     QSqlQuery query;
     query.exec("create table usertype (usertypeid INTEGER PRIMARY KEY, type TEXT)");
     query.exec("create table user (id INTEGER PRIMARY KEY, fname TEXT, lname TEXT, type INTEGER, uname TEXT, password TEXT, FOREIGN KEY (type) REFERENCES usertype(usertypeid))");
-    query.exec("create table message (messageid INTEGER PRIMARY KEY, sendid INTEGER, receiveid INTEGER, time INTEGER(8), message TEXT, FOREIGN KEY (sendid) REFERENCES user (userid), FOREIGN KEY (receiveid) REFERENCES user (userid))");
+    query.exec("create table message (messageid INTEGER PRIMARY KEY, sendid INTEGER, receiveid INTEGER, subject TEXT, time INTEGER, message TEXT, read INTEGER, FOREIGN KEY (sendid) REFERENCES user (userid), FOREIGN KEY (receiveid) REFERENCES user (userid))");
     query.exec("create table errortable (errorid INTEGER PRIMARY KEY, desc TEXT, time INTEGER(8))");
     query.exec("create table building (buildingid INTEGER PRIMARY KEY, onsitelaundry INTEGER, offstreetparking INTEGER, multifamily INTEGER, studio INTEGER, onebed INTEGER, twobed INTEGER, threebed INTEGER, rentcontrol INTEGER)");
     query.exec("create table requesttype (requesttypeid INTEGER PRIMARY KEY, type TEXT)");

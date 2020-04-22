@@ -30,6 +30,10 @@ const array<string, 7> tenantlist{"Pay Rent","View Rent Transactions","Maintenan
 
 //admin menu def
 
-const array<string,3> adminlist {"Display Error Log", "Set Landlord Message user","Exit"};
+const array<string,3> adminlist {"Display Error Log", "View Landlord Message user","Exit"};
+
+//user landlord mail is send to
+
+const string landlordMailUser = "landlorduser";
 
 #endif // CONSTANTS_H

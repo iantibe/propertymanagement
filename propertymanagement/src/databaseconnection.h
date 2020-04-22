@@ -14,8 +14,9 @@ public:
     bool checkConnectionOpen();
     Databaseconnection();
     ~Databaseconnection();
-private:
     QSqlDatabase db;
+private:
+
     void createDatabase();
 };
 

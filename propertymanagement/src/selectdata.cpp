@@ -35,3 +35,18 @@ Selectdata::Selectdata(){
     return data;
 
 }
+
+ User Selectdata::getUserById(int id){
+    QSqlQuery query;
+    query.prepare("select id, fname, lname from user where id = :id ");
+    query.bindValue(":id" , id);
+    query.exec();
+    query.next();
+
+    QString fname = query.value(1).toString();
+    QString lname = query.value(2).toString();
+
+    User u(query.value(0).toULongLong(), fname.toStdString() , lname.toStdString());
+
+    return u;
+ }

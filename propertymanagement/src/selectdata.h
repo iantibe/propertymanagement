@@ -9,6 +9,7 @@ public:
     User getUserbyScreenName(string);
     int getUserType(User);
     Selectdata();
+    User getUserById(int);
 
 };
 

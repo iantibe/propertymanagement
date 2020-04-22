@@ -1,6 +1,6 @@
 #include "message.h"
 
-Message::Message(User & send, User & rec, time_t t): sender(send),receiver(rec){
+Message::Message(User send, User  rec, time_t t): sender(send),receiver(rec){
     timedatesent = t;
     isread = false;
 }
@@ -52,4 +52,13 @@ User Message::getReceiver(){
 
 string Message::getMessage(){
     return message;
+}
+
+string Message::getSubject(){
+    return subject;
+
+}
+
+void Message::setSubject(string s){
+    this->subject = s;
 }

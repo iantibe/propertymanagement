@@ -14,7 +14,7 @@ void Session::init_Session(){
         usertype = instance.getUserType(currentUser);
 
         if(usertype == 1){
-            Tenantmenu instance("Tenant Menu");
+            Tenantmenu instance("Tenant Menu",currentUser);
             instance.display();
         }else if(usertype == 2){
             Landlordmenu instance("Landlord Menu");
