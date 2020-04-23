@@ -1,6 +1,6 @@
 #include "session.h"
 #include "constants.h"
-#include "error.h"
+#include "errorhandler.h"
 #include <iostream>
 
 using namespace std;
@@ -23,12 +23,12 @@ void Session::init_Session(){
             Adminmenu instance("Admin Menu");
             instance.display();
         }else {
-            throw "Error. Unable to determine user type";
+            throw domain_error("Unable to determine menu for user");
         }
     } catch (exception e) {
-        Error error;
-        error.addError(e.what());
-        cout << e.what();
+        Errorhandler errorhandler;
+        errorhandler.saveError(e.what());
+        cout << "An Error has occured. IT has been notified";
     }
 
 

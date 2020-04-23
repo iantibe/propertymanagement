@@ -10,6 +10,7 @@ public:
     void display() override;
 private:
     vector<Menuitem> buildAdminMenu();
+    void displayErrorReport();
 };
 
 #endif // ADMINMENU_H

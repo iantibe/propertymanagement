@@ -10,6 +10,7 @@ public:
     void sendMessage(Message &);
     vector<Message> getUnreadMessages(User &);
     void deleteMessage(Message &);
-    vector<Message> listAllMessages(User &);
+    vector<Message> listReadMessages(User &);
+    void updateReadStatus(int);
 };
 #endif // MESSAGEHANDLER_H

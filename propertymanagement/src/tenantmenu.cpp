@@ -90,12 +90,16 @@ void Tenantmenu::displaySendMail(){
 
 void Tenantmenu::displayViewMail(){
 
+    Messagehandler messagehandler;
+
     vector<Message> list = messagehandler.getUnreadMessages(currentUser);
 
     if(list.size() == 0){
         cout << "No messages to display" <<  endl;
 
     }else{
+
+        cout << "UNREAD MESSAGES" << endl;
         for(int i = 0; i < list.size(); i++){
             cout << "--------------------------------------------------" << endl;
             cout << "Message id: " << list.at(i).getMessageId() << endl;
@@ -103,9 +107,27 @@ void Tenantmenu::displayViewMail(){
             cout << "Subject: " << list.at(i).getSubject() << endl;
             cout << "Time: " << list.at(i).getTimeDateSent() << endl;
             cout << "Message: " << list.at(i).getMessage() << endl << endl<< endl ;
-            cout << "Enter 1 to continue..." << endl;
             cout << "--------------------------------------------------" << endl;
-            list.at(i).setIsRead(true);
+            messagehandler.updateReadStatus(list.at(i).getMessageId());
+
         }
+
+        cout << "READ MESSAGES" << endl;
+        vector<Message> readlist = messagehandler.listReadMessages(currentUser);
+
+        for(int i = 0; i < readlist.size(); i++){
+            cout << "--------------------------------------------------" << endl;
+            cout << "Message id: " << readlist.at(i).getMessageId() << endl;
+            cout << "Received from: " << readlist.at(i).getReceiver().getFname() << " " << readlist.at(i).getReceiver().getLname() << endl;
+            cout << "Subject: " << readlist.at(i).getSubject() << endl;
+            cout << "Time: " << readlist.at(i).getTimeDateSent() << endl;
+            cout << "Message: " << readlist.at(i).getMessage() << endl << endl<< endl ;
+            cout << "--------------------------------------------------" << endl;
+
+        }
+
     }
+
+
+
 }

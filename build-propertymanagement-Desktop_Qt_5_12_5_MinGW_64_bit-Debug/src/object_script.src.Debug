@@ -4,6 +4,7 @@ debug/adminuser.o
 debug/building.o
 debug/databaseconnection.o
 debug/error.o
+debug/errorhandler.o
 debug/insertdata.o
 debug/landlordmenu.o
 debug/landlorduser.o

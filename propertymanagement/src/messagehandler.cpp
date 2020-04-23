@@ -1,7 +1,7 @@
 #include "messagehandler.h"
 #include "Databaseconnection.h"
 #include <iostream>
-#include "error.h"
+#include "errorhandler.h"
 #include <QSqlError>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -70,6 +70,35 @@ void Messagehandler::deleteMessage(Message & m){
 
 }
 
-vector<Message> Messagehandler::listAllMessages(User & u){
+vector<Message> Messagehandler::listReadMessages(User & u){
+    QSqlQuery query;
+    Selectdata selectdata;
+    vector<Message> list;
+    query.prepare("select messageid, sendid, receiveid, subject, time, message, read from message where read = 1 and sendid = :send");
+    query.bindValue(":send" , u.getUserid());
+    query.exec();
 
+
+
+    while(query.next()){
+        User receive = selectdata.getUserById(query.value(2).toULongLong());
+        Message m(u,receive,query.value(4).toULongLong());
+        m.setIsRead(query.value(6).toULongLong());
+        QString message = query.value(5).toString();
+        m.setMessage(message.toStdString());
+        QString subject = query.value(3).toString();
+        m.setSubject(subject.toStdString());
+        m.setMessageId(query.value(0).toULongLong());
+
+        list.push_back(m);
+    }
+
+    return list;
+}
+
+void Messagehandler::updateReadStatus(int id) {
+    QSqlQuery query;
+    query.prepare("update message set read = 1 where messageid = :messageid");
+    query.bindValue(":messageid", id);
+    query.exec();
 }

@@ -1,6 +1,8 @@
 #include "adminmenu.h"
 #include <iostream>
 #include "constants.h"
+#include "errorhandler.h"
+#include <ctime>
 
 using namespace std;
 
@@ -38,7 +40,7 @@ void Adminmenu::display(){
 
         switch (sel) {
         case 1:
-
+            displayErrorReport();
             break;
         case 2:
 
@@ -51,10 +53,20 @@ void Adminmenu::display(){
 
     }
 
+}
 
+void Adminmenu::displayErrorReport(){
 
+    Errorhandler errorhandler;
+    vector<Error> list = errorhandler.getErrors();
 
+    cout << "Current Errors: " << endl;
 
-
-
+    for(int i = 0; i < list.size(); i++){
+        cout << "------------------------------------" << endl;
+        cout << "Error Time: " << list.at(i).getTime() << endl;
+        cout << "Error Description: " << list.at(i).getDesc() << endl;
+        cout << "------------------------------------" << endl;
+    }
+    cout << "End of list" << endl;
 }

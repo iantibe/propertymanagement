@@ -1,13 +1,20 @@
 #ifndef ERROR_H
 #define ERROR_H
+
+#include <ctime>
 #include <string>
-#include "insertdata.h"
 
 using namespace std;
 
 class Error {
+private:
+    string desc;
+    time_t time;
 public:
-    void addError(string);
+    string getDesc();
+    time_t getTime();
+    void setDesc(string);
+    void setTime(time_t);
 };
 
 #endif // ERROR_H

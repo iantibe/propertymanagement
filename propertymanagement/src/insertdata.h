@@ -6,7 +6,7 @@
 #include "building.h"
 #include "rentalunit.h"
 #include "tenant.h"
-#include "error.h"
+#include "errorhandler.h"
 
 class Insertdata : Databaseconnection {
 public:
