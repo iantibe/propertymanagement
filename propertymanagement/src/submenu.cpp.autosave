@@ -1,0 +1,12 @@
+#include "submenu.h"
+#include <string>
+
+using namespace std;
+
+void Submenu::display(){
+    
+}
+
+Submenu::Submenu(string title) : Menu(title){
+    
+}

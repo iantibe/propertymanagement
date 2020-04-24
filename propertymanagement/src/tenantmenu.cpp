@@ -5,6 +5,7 @@
 #include "selectdata.h"
 #include "messagehandler.h"
 
+
 using namespace std;
 
 vector<Menuitem> Tenantmenu::buildTenantMenu(){
@@ -69,6 +70,7 @@ void Tenantmenu::displaySendMail(){
     string subject;
     string message;
     cout << "Send mail to Landlord" << endl;
+    cout << "Message will automatically be sent to Landlord" << endl;
     cout << "Enter subject: ";
     cin >> subject;
     cout << "Enter message: ";
@@ -76,8 +78,6 @@ void Tenantmenu::displaySendMail(){
     Messagehandler messagehandler;
     Selectdata instance;
     time_t nowtime = time(0);
-
-
 
     Message messagetoSend(instance.getUserbyScreenName(landlordMailUser),currentUser,nowtime);
     messagetoSend.setMessage(message);
@@ -94,10 +94,6 @@ void Tenantmenu::displayViewMail(){
 
     vector<Message> list = messagehandler.getUnreadMessages(currentUser);
 
-    if(list.size() == 0){
-        cout << "No messages to display" <<  endl;
-
-    }else{
 
         cout << "UNREAD MESSAGES" << endl;
         for(int i = 0; i < list.size(); i++){
@@ -125,9 +121,5 @@ void Tenantmenu::displayViewMail(){
             cout << "--------------------------------------------------" << endl;
 
         }
-
-    }
-
-
 
 }

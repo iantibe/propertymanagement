@@ -10,6 +10,7 @@ public:
     int getUserType(User);
     Selectdata();
     User getUserById(int);
+    vector <User> getUsers();
 
 };
 

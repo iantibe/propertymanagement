@@ -50,3 +50,19 @@ Selectdata::Selectdata(){
 
     return u;
  }
+
+ vector<User> Selectdata::getUsers(){
+     vector<User> list;
+     QSqlQuery query;
+     query.prepare("select id, fname, lname from user");
+     query.exec();
+
+     while(query.next()){
+         QString fname = query.value(1).toString();
+         QString lname = query.value(2).toString();
+         User user(query.value(0).toULongLong(), fname.toStdString(), lname.toStdString());
+         list.push_back(user);
+     }
+
+     return list;
+ }

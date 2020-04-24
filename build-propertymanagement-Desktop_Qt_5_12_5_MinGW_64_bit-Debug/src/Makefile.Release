@@ -572,7 +572,49 @@ release/landlordmenu.o: ../../propertymanagement/src/landlordmenu.cpp ../../prop
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringliteral.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringalgorithms.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringview.h \
-		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringbuilder.h
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringbuilder.h \
+		../../propertymanagement/src/user.h \
+		../../propertymanagement/src/message.h \
+		../../propertymanagement/src/messagehandler.h \
+		../../propertymanagement/src/Databaseconnection.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtSql/QSqlError \
+		C:/Qt/5.12.5/mingw73_64/include/QtSql/qsqlerror.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtSql/QSqlQuery \
+		C:/Qt/5.12.5/mingw73_64/include/QtSql/qsqlquery.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/QDebug \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qdebug.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qalgorithms.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qhash.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qiterator.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qlist.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qpair.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringlist.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qregexp.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qmap.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qtextstream.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qiodevice.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qobject.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcoreevent.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qmetatype.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcontainerfwd.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qobject_impl.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qlocale.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qvariant.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qvector.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qpoint.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qset.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		../../propertymanagement/src/selectdata.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\landlordmenu.o ..\..\propertymanagement\src\landlordmenu.cpp
 
 release/landlorduser.o: ../../propertymanagement/src/landlorduser.cpp ../../propertymanagement/src/landlorduser.h \

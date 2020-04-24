@@ -1,0 +1,13 @@
+#ifndef SUBMENU_H
+#define SUBMENU_H
+#include "menu.h"
+
+class Submenu : public Menu {
+public:
+    Submenu(string);
+    void display() override;
+    //dummy class so we can access just items in pure vurtual class of Menu
+    //This class will be used for creating small menus for selecting data with in main menus
+};
+
+#endif // SUBMENU_H

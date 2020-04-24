@@ -17,7 +17,7 @@ void Session::init_Session(){
             Tenantmenu instance("Tenant Menu",currentUser);
             instance.display();
         }else if(usertype == 2){
-            Landlordmenu instance("Landlord Menu");
+            Landlordmenu instance("Landlord Menu", currentUser);
             instance.display();
         }else if (usertype == 3){
             Adminmenu instance("Admin Menu");
