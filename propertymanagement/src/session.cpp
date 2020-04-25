@@ -25,10 +25,10 @@ void Session::init_Session(){
         }else {
             throw domain_error("Unable to determine menu for user");
         }
-    } catch (exception e) {
+    } catch (domain_error e) {
         Errorhandler errorhandler;
         errorhandler.saveError(e.what());
-        cout << "An Error has occured. IT has been notified";
+        cout << "An Error has occured. IT has been notified. Unable to login at this time.";
     }
 
 
