@@ -1,6 +1,6 @@
 #include "building.h"
 
-Building::Building(string ad, bool osl, bool osp, bool mf, int s, int o, int t, int th, bool rc){
+Building::Building(string ad, int osl, int osp, int mf, int s, int o, int t, int th, int rc){
     this->address = ad;
     this->onSiteLaundry = osl;
     this->offStreetParking = osp;
@@ -55,15 +55,15 @@ string Building::getAddress(){
     return address;
 }
 
-bool Building::getOnSiteLaundry(){
+int Building::getOnSiteLaundry(){
     return onSiteLaundry;
 }
 
-bool Building::getOffStreetParking(){
+int Building::getOffStreetParking(){
     return offStreetParking;
 }
 
-bool Building::getMultiFamily(){
+int Building::getMultiFamily(){
     return multiFamily;
 }
 
@@ -83,6 +83,14 @@ int Building::getThreeBed(){
     return threeBed;
 }
 
-bool Building::getRentControlled(){
+int Building::getRentControlled(){
     return rentControlled;
+}
+
+void Building::setBuildingId(int id){
+    this->buildingID = id;
+}
+
+int Building::getBuildingId(){
+    return buildingID;
 }

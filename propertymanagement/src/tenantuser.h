@@ -3,6 +3,7 @@
 
 #include "usertype.h"
 #include "user.h"
+#include "rentalunit.h"
 
 class Tenantuser : public User {
 private:

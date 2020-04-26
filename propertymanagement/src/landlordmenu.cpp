@@ -3,7 +3,8 @@
 #include "message.h"
 #include "messagehandler.h"
 #include "selectdata.h"
-
+#include "building.h"
+#include "insertdata.h"
 
 using namespace std;
 
@@ -40,12 +41,13 @@ void Landlordmenu::display(){
 
         switch (sel) {
         case 1:
-
+            addTenant();
             break;
         case 2:
 
             break;
         case 3:
+            addBuilding();
             break;
         case 4:
             break;
@@ -132,4 +134,125 @@ void Landlordmenu::displaySendMail(){
 
     messagehandler.sendMessage(messagetoSend);
     cout << "Message sent!" << endl;
+}
+
+void Landlordmenu::addBuilding(){
+    Insertdata insert;
+    int  onSiteLaundry;
+    int rentControlled;
+    int offStreetParking;
+    int multiFamily;
+
+    char onsitelaundry;
+    char rentcontroled;
+    char offstreetparking;
+    char multifamily;
+
+    string address;
+    int oneBed;
+    int twoBed;
+    int threeBed;
+    int studio;
+
+
+    cout << "Add Tenant" << endl;
+    cout << "What is the address?" << endl;
+    cin >> address;
+    cout << "How many studio apartments?" << endl;
+    cin >> studio;
+    cout << "How many one bed room apartments?" << endl;
+    cin >> oneBed;
+    cout << "How many two bed room apartments?" << endl;
+    cin >> twoBed;
+    cout << "How many three bed room apartments?" << endl;
+    cin >> threeBed;
+    cout << "Is it rent controlled? Enter y for yes and n for no" << endl;
+    cin >> rentcontroled;
+
+    if (rentcontroled == 'y' || rentcontroled == 'Y'){
+       rentControlled = 1;
+    }else {
+        rentControlled = 0;
+    }
+    cout << "Is Building multi family? Enter y for yes and n for no" << endl;
+    cin >> multifamily;
+
+    if(multifamily == 'y' || multifamily == 'n'){
+        multiFamily = 1;
+    }else{
+        multiFamily = 0;
+    }
+
+    cout << "Does building have on site laundry? Enter y for yes and n for no" << endl;
+    cin >> onsitelaundry;
+
+    if(onsitelaundry == 'y' || onsitelaundry == 'Y'){
+        onSiteLaundry = 1;
+    }else {
+        onSiteLaundry = 0;
+    }
+
+    cout << "Does the building have off street parking? Enter y for yes and n for on" << endl;
+    cin >> offstreetparking;
+
+    if (offstreetparking == 'y' || offstreetparking == 'Y'){
+        offStreetParking = 1;
+    }else {
+        offStreetParking =0;
+    }
+
+    Building building(address, onSiteLaundry,offStreetParking,multiFamily,studio,oneBed,twoBed,threeBed,rentControlled);
+
+    insert.saveBuilding(building);
+
+    cout << "Building Saved!!" << endl;
+
+}
+
+void Landlordmenu::addTenant(){
+    string fnam;
+    string lnam;
+    string screenname;
+    string password;
+    string unit;
+
+    Insertdata insertdata;
+    Selectdata selectdata;
+    vector<Building> list;
+    int vectorIndexOfBuilding;
+
+    cout << "Add tenant" << endl;
+    cout << "Tenant firstname: " << endl;
+    cin >> fnam;
+    cout << "Tenant lastname: " <<endl;
+    cin >> lnam;
+    cout << "Tenant user name:" << endl;
+    cin >> screenname;
+    cout << "Tenant password: " << endl;
+    cin >> password;
+
+    cout << "Which building to assign tenant: " << endl;
+    list = selectdata.getListOfBuildings();
+
+    cout << "-----------------------------------" << endl;
+    for(int i = 0; i < list.size(); i++){
+     cout << i+1 << ". " <<  list.at(i).getAddress() << endl;
+    }
+
+    cout << "Enter Building number: " << endl;
+    cin >> vectorIndexOfBuilding;
+
+    cout << "Which unit in " << list.at(vectorIndexOfBuilding-1).getAddress() << " to assign to Tenant" << endl;
+    cin >> unit;
+
+    //add user to database so we can get an userid from user table
+    User newUser(0,fnam,lnam);
+    insertdata.saveUser(newUser);
+    int userId = selectdata.getUserId(newUser.getFname(),newUser.getLname());
+    newUser.setUserid(userId);
+
+    list.at(vectorIndexOfBuilding -1);
+
+
+
 }

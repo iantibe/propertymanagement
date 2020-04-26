@@ -8,17 +8,18 @@ using namespace std;
 class Building {
 private:
     string address;
-    bool onSiteLaundry;
-    bool offStreetParking;
-    bool multiFamily;
+    int onSiteLaundry;
+    int offStreetParking;
+    int multiFamily;
     int studio;
     int oneBed;
     int twoBed;
     int threeBed;
-    bool rentControlled;
+    int rentControlled;
+    int buildingID;
 public:
     int totalUnits();
-    Building(string, bool, bool, bool, int, int, int, int, bool);
+    Building(string, int, int, int, int, int, int, int, int);
     void setAddress(string );
     void setOnSiteLaundry(bool);
     void setOffStreetParking(bool);
@@ -28,15 +29,18 @@ public:
     void setTwoBed(int);
     void setThreeBed(int);
     void setRentControlled(bool);
+    void setBuildingId(int);
     string getAddress();
-    bool getOnSiteLaundry();
-    bool getOffStreetParking();
-    bool getMultiFamily();
+    int getOnSiteLaundry();
+    int getOffStreetParking();
+    int getMultiFamily();
     int getStudio();
     int getOneBed();
     int getTwoBed();
     int getThreeBed();
-    bool getRentControlled();
+    int getRentControlled();
+    int getBuildingId();
+
 
 };
 

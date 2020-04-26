@@ -614,7 +614,15 @@ debug/landlordmenu.o: ../../propertymanagement/src/landlordmenu.cpp ../../proper
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h \
-		../../propertymanagement/src/selectdata.h
+		../../propertymanagement/src/selectdata.h \
+		../../propertymanagement/src/building.h \
+		../../propertymanagement/src/insertdata.h \
+		../../propertymanagement/src/rentalunit.h \
+		../../propertymanagement/src/tenant.h \
+		../../propertymanagement/src/Tenantuser.h \
+		../../propertymanagement/src/usertype.h \
+		../../propertymanagement/src/errorhandler.h \
+		../../propertymanagement/src/error.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\landlordmenu.o ..\..\propertymanagement\src\landlordmenu.cpp
 
 debug/landlorduser.o: ../../propertymanagement/src/landlorduser.cpp ../../propertymanagement/src/landlorduser.h \
@@ -699,12 +707,14 @@ debug/loginout.o: ../../propertymanagement/src/loginout.cpp ../../propertymanage
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		../../propertymanagement/src/building.h \
 		../../propertymanagement/src/loginscreen.h \
 		../../propertymanagement/src/accessscreen.h \
 		../../propertymanagement/src/logoutscreen.h \
 		../../propertymanagement/src/constants.h \
 		../../propertymanagement/src/Tenantuser.h \
-		../../propertymanagement/src/usertype.h
+		../../propertymanagement/src/usertype.h \
+		../../propertymanagement/src/rentalunit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\loginout.o ..\..\propertymanagement\src\loginout.cpp
 
 debug/loginscreen.o: ../../propertymanagement/src/loginscreen.cpp ../../propertymanagement/src/loginscreen.h \
@@ -831,19 +841,19 @@ debug/main.o: ../../propertymanagement/src/main.cpp C:/Qt/5.12.5/mingw73_64/incl
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		../../propertymanagement/src/building.h \
 		../../propertymanagement/src/loginscreen.h \
 		../../propertymanagement/src/accessscreen.h \
 		../../propertymanagement/src/logoutscreen.h \
 		../../propertymanagement/src/session.h \
 		../../propertymanagement/src/Tenantuser.h \
 		../../propertymanagement/src/usertype.h \
+		../../propertymanagement/src/rentalunit.h \
 		../../propertymanagement/src/landlorduser.h \
 		../../propertymanagement/src/adminuser.h \
 		../../propertymanagement/src/rentaction.h \
 		../../propertymanagement/src/rent.h \
 		../../propertymanagement/src/tenant.h \
-		../../propertymanagement/src/rentalunit.h \
-		../../propertymanagement/src/building.h \
 		../../propertymanagement/src/maintenancehandler.h \
 		../../propertymanagement/src/maintenancerequest.h \
 		../../propertymanagement/src/constants.h \
@@ -1079,7 +1089,8 @@ debug/messagehandler.o: ../../propertymanagement/src/messagehandler.cpp ../../pr
 		../../propertymanagement/src/user.h \
 		../../propertymanagement/src/errorhandler.h \
 		../../propertymanagement/src/error.h \
-		../../propertymanagement/src/selectdata.h
+		../../propertymanagement/src/selectdata.h \
+		../../propertymanagement/src/building.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\messagehandler.o ..\..\propertymanagement\src\messagehandler.cpp
 
 debug/messagemenu.o: ../../propertymanagement/src/messagemenu.cpp ../../propertymanagement/src/messagemenu.h \
@@ -1162,7 +1173,8 @@ debug/password.o: ../../propertymanagement/src/password.cpp ../../propertymanage
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qset.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		../../propertymanagement/src/building.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\password.o ..\..\propertymanagement\src\password.cpp
 
 debug/rent.o: ../../propertymanagement/src/rent.cpp ../../propertymanagement/src/rent.h \
@@ -1335,13 +1347,18 @@ debug/selectdata.o: ../../propertymanagement/src/selectdata.cpp ../../propertyma
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qset.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		../../propertymanagement/src/building.h \
+		../../propertymanagement/src/errorhandler.h \
+		../../propertymanagement/src/error.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\selectdata.o ..\..\propertymanagement\src\selectdata.cpp
 
 debug/session.o: ../../propertymanagement/src/session.cpp ../../propertymanagement/src/session.h \
 		../../propertymanagement/src/user.h \
 		../../propertymanagement/src/Tenantuser.h \
 		../../propertymanagement/src/usertype.h \
+		../../propertymanagement/src/rentalunit.h \
+		../../propertymanagement/src/building.h \
 		../../propertymanagement/src/landlorduser.h \
 		../../propertymanagement/src/adminuser.h \
 		../../propertymanagement/src/rentaction.h \
@@ -1420,8 +1437,6 @@ debug/session.o: ../../propertymanagement/src/session.cpp ../../propertymanageme
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		../../propertymanagement/src/rent.h \
 		../../propertymanagement/src/tenant.h \
-		../../propertymanagement/src/rentalunit.h \
-		../../propertymanagement/src/building.h \
 		../../propertymanagement/src/maintenancehandler.h \
 		../../propertymanagement/src/maintenancerequest.h \
 		../../propertymanagement/src/constants.h \
@@ -1528,12 +1543,51 @@ debug/tenantmenu.o: ../../propertymanagement/src/tenantmenu.cpp ../../propertyma
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		../../propertymanagement/src/building.h \
 		../../propertymanagement/src/messagehandler.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tenantmenu.o ..\..\propertymanagement\src\tenantmenu.cpp
 
 debug/tenantuser.o: ../../propertymanagement/src/tenantuser.cpp ../../propertymanagement/src/Tenantuser.h \
 		../../propertymanagement/src/usertype.h \
-		../../propertymanagement/src/user.h
+		../../propertymanagement/src/user.h \
+		../../propertymanagement/src/rentalunit.h \
+		../../propertymanagement/src/building.h \
+		../../propertymanagement/src/constants.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtSql/QSqlDatabase \
+		C:/Qt/5.12.5/mingw73_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qglobal.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qconfig.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qtcore-config.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qsysinfo.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qlogging.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qflags.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qatomic.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qmutex.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qnumeric.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qversiontagging.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtSql/qtsql-config.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstring.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qchar.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qbytearray.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qrefcount.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qnamespace.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qarraydata.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringliteral.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringview.h \
+		C:/Qt/5.12.5/mingw73_64/include/QtCore/qstringbuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tenantuser.o ..\..\propertymanagement\src\tenantuser.cpp
 
 debug/updatedata.o: ../../propertymanagement/src/updatedata.cpp ../../propertymanagement/src/updatedata.h \

@@ -1,6 +1,6 @@
 #include "tenant.h"
 
-Tenant::Tenant(Tenantuser &u, Rentalunit &r, Building &b): user(u){
+Tenant::Tenant(Tenantuser &u, Rentalunit &r, Building &b ): user(u), unit(r){
 
 }
 

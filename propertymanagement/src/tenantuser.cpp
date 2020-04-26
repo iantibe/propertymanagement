@@ -1,5 +1,6 @@
 #include "Tenantuser.h"
 #include "usertype.h"
+#include "constants.h"
 
 Usertype Tenantuser::getUsertype(){
     return type;

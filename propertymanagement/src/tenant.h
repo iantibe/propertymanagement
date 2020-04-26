@@ -7,6 +7,7 @@
 class Tenant {
 private:
     Tenantuser user;
+    Rentalunit unit;
 public:
     Tenantuser getUser();
     void setUser(Tenantuser &);

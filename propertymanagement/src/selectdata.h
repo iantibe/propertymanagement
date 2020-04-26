@@ -3,6 +3,7 @@
 
 #include "user.h"
 #include "Databaseconnection.h"
+#include "building.h"
 
 class Selectdata : Databaseconnection{
 public:
@@ -11,6 +12,8 @@ public:
     Selectdata();
     User getUserById(int);
     vector <User> getUsers();
+    vector <Building> getListOfBuildings();
+    int getUserId(string, string);
 
 };
 

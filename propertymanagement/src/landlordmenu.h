@@ -11,10 +11,13 @@ public:
     Landlordmenu(string, User);
     void display() override;
 
+
 private:
     void displayViewMail();
     User currentUser;
     void displaySendMail();
+    void addBuilding();
+    void addTenant();
 };
 
 #endif // LANDLORDMENU_H
