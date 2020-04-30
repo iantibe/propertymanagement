@@ -4,6 +4,7 @@
 #include <array>
 #include <QSqlDatabase>
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -36,5 +37,11 @@ const array<string,3> adminlist {"Display Error Log", "View Landlord Message use
 
 const string landlordMailUser = "landlorduser";
 
+//generate month map
+
+const array<string, 12> monthlist {"January", "Febuary","March", "April", "May","June","July","August", "September","October", "November", "December"};
+
 #endif // CONSTANTS_H
+
+
 

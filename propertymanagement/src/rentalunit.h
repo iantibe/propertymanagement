@@ -8,7 +8,7 @@ private:
     Building building;
     string unitNumber;
 public:
-    Rentalunit(string, Building &);
+    Rentalunit(string, Building );
     Rentalunit(string, string ad, bool osl, bool osp, bool mf, int s, int o, int t, int th, bool rc);
     Building getBuilding();
     void setBuilding(Building);

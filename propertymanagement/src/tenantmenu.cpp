@@ -39,7 +39,7 @@ void Tenantmenu::display(){
 
         switch (sel) {
         case 1:
-
+            displayPayRent();
             break;
         case 2:
 
@@ -121,5 +121,26 @@ void Tenantmenu::displayViewMail(){
             cout << "--------------------------------------------------" << endl;
 
         }
+
+}
+
+void Tenantmenu::displayPayRent(){
+    float rentAmt;
+    int month;
+    cout << "Pay Rent: " << currentUser.getFname() << " " << currentUser.getLname();
+
+    cout << "Enter month id: " << endl;
+
+    cout << "--------------------" << endl;
+    for(int i = 0; i < monthlist.size(); i++){
+        cout << i+1 << ". " <<monthlist[i] << endl;
+    }
+    cout << "--------------------" << endl;
+    cin >> month;
+    cout << "Enter Rent amount" << endl;
+    cin >> rentAmt;
+
+//access month month-1
+
 
 }

@@ -11,7 +11,10 @@ private:
 public:
     Tenantuser getUser();
     void setUser(Tenantuser &);
-    Tenant(Tenantuser &, Rentalunit &, Building &);
+    void setRentalunit(Rentalunit &);
+    Rentalunit getRentalunit();
+
+    Tenant(Tenantuser &, Rentalunit );
 };
 
 #endif // TENANT_H

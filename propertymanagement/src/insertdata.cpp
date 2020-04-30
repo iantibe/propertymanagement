@@ -24,12 +24,12 @@ void Insertdata::saveBuilding(Building  b){
         query.bindValue(":address", b.getAddress().c_str());
         query.exec();
 
-        QSqlQuery test;
+      //  QSqlQuery test;
 
-        test.prepare("select address from building");
-        test.exec();
-        test.next();
-        qDebug() << test.value(0);
+        //test.prepare("select address from building");
+       // test.exec();
+       // test.next();
+
 
 
     } catch (exception e) {
@@ -44,12 +44,26 @@ void Insertdata::saveRentalUnit(Rentalunit &){
 }
 
 void Insertdata::saveTenant(class Tenant & t){
-
+    QSqlQuery query;
+    query.prepare("insert into rentalunit (buildingid, userid, unitnumber) values(:buildingid, :userid, :unitnumber)");
+    query.bindValue(":buildingid",t.getRentalunit().getBuilding().getBuildingId());
+    query.bindValue(":userid",t.getUser().getUserid());
+    query.bindValue(":unitnumber",t.getRentalunit().getUnitnumber().c_str());
+    query.exec();
 
 }
 
-void Insertdata::saveUser(User & u){
+void Insertdata::saveUser(User & u, string uname, string pw){
+    QSqlQuery insertuser;
+    insertuser.prepare("INSERT INTO user (fname, lname, type, uname, password) VALUES (?, ?, ?, ?, ?)");
 
+    insertuser.addBindValue(u.getFname().c_str());
+    insertuser.addBindValue(u.getLname().c_str());
+    insertuser.addBindValue(1);
+    //user type for tenant is 1
+    insertuser.addBindValue(uname.c_str());
+    insertuser.addBindValue(pw.c_str());
+    insertuser.exec();
 
 }
 

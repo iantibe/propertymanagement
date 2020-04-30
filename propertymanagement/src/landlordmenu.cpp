@@ -210,6 +210,7 @@ void Landlordmenu::addBuilding(){
 }
 
 void Landlordmenu::addTenant(){
+    Insertdata insert;
     string fnam;
     string lnam;
     string screenname;
@@ -247,12 +248,22 @@ void Landlordmenu::addTenant(){
 
     //add user to database so we can get an userid from user table
     User newUser(0,fnam,lnam);
-    insertdata.saveUser(newUser);
+    insertdata.saveUser(newUser,screenname,password);
     int userId = selectdata.getUserId(newUser.getFname(),newUser.getLname());
     newUser.setUserid(userId);
 
-    list.at(vectorIndexOfBuilding -1);
+    //test
 
 
+    // how to address building :list.at(vectorIndexOfBuilding -1);
+
+    Rentalunit rentalunit(unit,list.at(vectorIndexOfBuilding -1));
+
+    Tenantuser tenantuser(currentUser.getUserid(),currentUser.getFname(),currentUser.getLname());
+
+    class Tenant tenant(tenantuser,rentalunit);
+
+    insert.saveTenant(tenant);
+    cout << "Tenant Saved!" << endl;
 
 }

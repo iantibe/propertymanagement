@@ -13,7 +13,7 @@ public:
     void saveBuilding(Building );
     void saveRentalUnit(Rentalunit &);
     void saveTenant(class Tenant &);
-    void saveUser(User &);
+    void saveUser(User &, string, string);
     void saveError(string);
 
 

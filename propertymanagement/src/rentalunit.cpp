@@ -13,8 +13,24 @@ Rentalunit::Rentalunit(string un, string ad, bool osl, bool osp, bool mf, int s,
     building.setRentControlled(rc);
 }
 
-Rentalunit::Rentalunit(string number, Building & b):building(b){
+Rentalunit::Rentalunit(string number, Building  b):building(b){
         this->unitNumber = number;
+}
+
+Building Rentalunit::getBuilding(){
+    return building;
+}
+
+void Rentalunit::setBuilding(Building b){
+    this->building = b;
+}
+
+string Rentalunit::getUnitnumber(){
+    return unitNumber;
+}
+
+void Rentalunit::setUnitNumber(string s){
+    this->unitNumber = s;
 }
 
 
