@@ -24,11 +24,12 @@ void Insertdata::saveBuilding(Building  b){
         query.bindValue(":address", b.getAddress().c_str());
         query.exec();
 
-      //  QSqlQuery test;
+       QSqlQuery test;
 
-        //test.prepare("select address from building");
-       // test.exec();
-       // test.next();
+        test.prepare("select buildingid from building");
+        test.exec();
+       test.next();
+       qDebug() << "building id: " << test.value(0);
 
 
 
@@ -45,11 +46,21 @@ void Insertdata::saveRentalUnit(Rentalunit &){
 
 void Insertdata::saveTenant(class Tenant & t){
     QSqlQuery query;
+    cout << "value of t.getUser().getUserid()" << t.getUser().getUserid();
     query.prepare("insert into rentalunit (buildingid, userid, unitnumber) values(:buildingid, :userid, :unitnumber)");
     query.bindValue(":buildingid",t.getRentalunit().getBuilding().getBuildingId());
     query.bindValue(":userid",t.getUser().getUserid());
     query.bindValue(":unitnumber",t.getRentalunit().getUnitnumber().c_str());
     query.exec();
+
+    QSqlQuery test;
+
+     test.prepare("select rentalunitid, userid from rentalunit");
+     test.exec();
+   while(test.next()){
+    qDebug() << "rentalunitid:  " << test.value(0);
+    qDebug() << "user id of record" << test.value(1);
+   }
 
 }
 
@@ -92,3 +103,38 @@ void Insertdata::saveError(string e){
 }
 
 
+void Insertdata::saveRent(Rent & rent){
+//    int userid;
+    int unitid;
+    cout << "USer number: " << rent.getTenant().getUserid() << endl;
+    QSqlQuery getrentalunit;
+
+
+
+    getrentalunit.prepare("select rentalunitid from rentalunit where userid = :userid");
+    getrentalunit.bindValue(":userid", rent.getTenant().getUserid());
+    getrentalunit.exec();
+    getrentalunit.next();
+    qDebug() << "after execute" << getrentalunit.lastError();
+    unitid = getrentalunit.value(0).toULongLong();
+    qDebug() << "after get data" << getrentalunit.lastError();
+
+    cout << "unitid: " << unitid;
+
+    QSqlQuery query;
+    query.prepare("insert into rent (rentalunitid, month, amount) values(:rentalunitid, :month, :amount)");
+    query.bindValue(":rentalunitid", unitid);
+    query.bindValue(":month",rent.getMonth().c_str());
+    query.bindValue(":amount",rent.getRent());
+    query.exec();
+    qDebug() << query.lastError();
+
+    QSqlQuery test;
+    test.prepare("select rentalunitid, month, amount from rent");
+    test.exec();
+    test.next();
+    qDebug() << test.value(0);
+    qDebug() << test.value(1);
+    qDebug() << test.value(2);
+
+}

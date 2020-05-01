@@ -140,7 +140,7 @@ int Selectdata::getUserId(string fnam, string lnam){
     query.bindValue(":fname" , fnam.c_str());
     query.bindValue(":lname" , lnam.c_str());
     query.exec();
-
+    query.next();
     return query.value(0).toULongLong();
 
 }

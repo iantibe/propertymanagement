@@ -9,7 +9,7 @@ private:
     float rent;
     string month;
 public:
-    Rent(Tenantuser &, float rent);
+    Rent(Tenantuser &, float rent, string);
     void setTenant(Tenantuser &);
     void setRent(float);
     Tenantuser getTenant();

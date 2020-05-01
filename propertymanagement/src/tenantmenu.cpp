@@ -4,7 +4,9 @@
 #include "message.h"
 #include "selectdata.h"
 #include "messagehandler.h"
-
+#include "Tenantuser.h"
+#include "rent.h"
+#include "insertdata.h"
 
 using namespace std;
 
@@ -125,6 +127,7 @@ void Tenantmenu::displayViewMail(){
 }
 
 void Tenantmenu::displayPayRent(){
+    Insertdata insert;
     float rentAmt;
     int month;
     cout << "Pay Rent: " << currentUser.getFname() << " " << currentUser.getLname();
@@ -142,5 +145,9 @@ void Tenantmenu::displayPayRent(){
 
 //access month month-1
 
+    Tenantuser tenantuser(currentUser.getUserid(),currentUser.getFname(),currentUser.getLname());
+    Rent rent(tenantuser, rentAmt,monthlist[month-1]);
+    insert.saveRent(rent);
+    cout << "Rent saved!" << endl;
 
 }

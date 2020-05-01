@@ -250,6 +250,7 @@ void Landlordmenu::addTenant(){
     User newUser(0,fnam,lnam);
     insertdata.saveUser(newUser,screenname,password);
     int userId = selectdata.getUserId(newUser.getFname(),newUser.getLname());
+    cout << "userid of new user is: " << userId << endl;
     newUser.setUserid(userId);
 
     //test
@@ -259,7 +260,7 @@ void Landlordmenu::addTenant(){
 
     Rentalunit rentalunit(unit,list.at(vectorIndexOfBuilding -1));
 
-    Tenantuser tenantuser(currentUser.getUserid(),currentUser.getFname(),currentUser.getLname());
+    Tenantuser tenantuser(newUser.getUserid(),newUser.getFname(),newUser.getLname());
 
     class Tenant tenant(tenantuser,rentalunit);
 

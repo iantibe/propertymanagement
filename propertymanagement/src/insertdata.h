@@ -7,6 +7,7 @@
 #include "rentalunit.h"
 #include "tenant.h"
 #include "errorhandler.h"
+#include "rent.h"
 
 class Insertdata : Databaseconnection {
 public:
@@ -15,7 +16,7 @@ public:
     void saveTenant(class Tenant &);
     void saveUser(User &, string, string);
     void saveError(string);
-
+    void saveRent(Rent &);
 
     Insertdata();
 };
