@@ -44,7 +44,7 @@ void Tenantmenu::display(){
             displayPayRent();
             break;
         case 2:
-
+            viewRentTransactions();
             break;
         case 3:
             break;
@@ -150,4 +150,20 @@ void Tenantmenu::displayPayRent(){
     insert.saveRent(rent);
     cout << "Rent saved!" << endl;
 
+}
+
+void Tenantmenu::viewRentTransactions(){
+    Selectdata selectdata;
+    vector<Rent> list;
+    Tenantuser tenantuser(currentUser.getUserid(),currentUser.getFname(), currentUser.getLname());
+   list = selectdata.getRentsForTenant(tenantuser);
+
+    cout << "Rents paid:" << endl;
+    cout << "-----------------------------------------" << endl;
+    for(int i = 0; i < list.size(); i++){
+        cout << "Month: " << list.at(i).getMonth() << endl;
+        cout << "Amount: $" << list.at(i).getRent() << endl;
+        cout << "-------------------------------------" << endl;
+    }
+    cout << "End of list" << endl;
 }

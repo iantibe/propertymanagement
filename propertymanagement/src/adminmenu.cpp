@@ -43,7 +43,7 @@ void Adminmenu::display(){
             displayErrorReport();
             break;
         case 2:
-
+            displayUserToReceiveLandlordMail();
             break;
         case 3:
             exitFlag = true;
@@ -69,4 +69,8 @@ void Adminmenu::displayErrorReport(){
         cout << "------------------------------------" << endl;
     }
     cout << "End of list" << endl;
+}
+
+void Adminmenu::displayUserToReceiveLandlordMail(){
+    cout << "The landlord user: " << landlordMailUser << " will receive all mail from tenants" << endl;
 }

@@ -11,6 +11,7 @@ public:
 private:
     vector<Menuitem> buildAdminMenu();
     void displayErrorReport();
+    void displayUserToReceiveLandlordMail();
 };
 
 #endif // ADMINMENU_H

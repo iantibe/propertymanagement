@@ -17,6 +17,7 @@ private:
     User currentUser;
     void displayViewMail();
     void displayPayRent();
+    void viewRentTransactions();
 };
 
 #endif // TENANTMENU_H

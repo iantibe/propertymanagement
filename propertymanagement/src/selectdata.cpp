@@ -144,3 +144,31 @@ int Selectdata::getUserId(string fnam, string lnam){
     return query.value(0).toULongLong();
 
 }
+
+vector<Rent> Selectdata::getRentsForTenant(Tenantuser t){
+    vector<Rent> list;
+    int tenantid = getRentalunitIdbyTenant(t);
+
+    QSqlQuery query;
+    query.prepare("select month, amount from rent where rentalunitid = :rentalunitid");
+    query.bindValue(":rentalunitid", tenantid);
+    query.exec();
+
+    while(query.next()){
+        QString month = query.value(0).toString();
+        Rent rent(t,query.value(1).toULongLong(),month.toStdString());
+        list.push_back(rent);
+    }
+
+    return list;
+
+}
+
+int Selectdata::getRentalunitIdbyTenant(Tenantuser t){
+    QSqlQuery query;
+    query.prepare("select rentalunitid from rentalunit where userid = :userid");
+    query.bindValue(":userid", t.getUserid());
+    query.exec();
+    query.next();
+    return query.value(0).toULongLong();
+}

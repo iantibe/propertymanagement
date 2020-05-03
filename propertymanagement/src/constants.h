@@ -23,7 +23,7 @@ const string exitWord = "exit";
 
 //landlord menu def
 
-const array<string, 9> landlordlist {"Add Teant", "Remove Tenant","Add Building","View Maintenance Request","Update Maintenance Request","View Message","Send Message","Finance","Exit" };
+const array<string, 9> landlordlist {"Add Teant", "Remove Tenant","Add Building","View Maintenance Request","Update Maintenance Request","View Message","Send Message","Display Rents from Tenants","Exit" };
 
 //tenant menu def
 
@@ -31,7 +31,7 @@ const array<string, 7> tenantlist{"Pay Rent","View Rent Transactions","Maintenan
 
 //admin menu def
 
-const array<string,3> adminlist {"Display Error Log", "View Landlord Message user","Exit"};
+const array<string,3> adminlist {"Display Error Log", "View Landlord user who will receive all tenant messages","Exit"};
 
 //user landlord mail is send to
 

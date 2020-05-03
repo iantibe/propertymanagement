@@ -18,6 +18,7 @@ private:
     void displaySendMail();
     void addBuilding();
     void addTenant();
+    void displayAllRents();
 };
 
 #endif // LANDLORDMENU_H

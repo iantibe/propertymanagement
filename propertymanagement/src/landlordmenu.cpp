@@ -60,6 +60,7 @@ void Landlordmenu::display(){
             displaySendMail();
             break;
         case 8:
+            displayAllRents();
             break;
         case 9:
             exitFlag = true;
@@ -266,5 +267,10 @@ void Landlordmenu::addTenant(){
 
     insert.saveTenant(tenant);
     cout << "Tenant Saved!" << endl;
+
+}
+
+void Landlordmenu::displayAllRents(){
+    vector<Tenantuser> listoftenantusers;
 
 }
