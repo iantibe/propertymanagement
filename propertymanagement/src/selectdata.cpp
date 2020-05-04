@@ -172,3 +172,32 @@ int Selectdata::getRentalunitIdbyTenant(Tenantuser t){
     query.next();
     return query.value(0).toULongLong();
 }
+
+vector<Tenantuser> Selectdata::getAllTenantUsers(){
+    int type;
+    QSqlQuery gettype;
+    gettype.prepare("select usertypeid from usertype where type = :type");
+    gettype.bindValue(":type","Tenant");
+    gettype.exec();
+    gettype.next();
+    type = gettype.value(0).toULongLong();
+
+
+    vector<Tenantuser> list;
+     QSqlQuery query;
+     query.prepare("select id, fname, lname from user where type = :type");
+     query.bindValue(":type", type);
+     query.exec();
+
+     while(query.next()){
+         QString fname = query.value(1).toString();
+         QString lname = query.value(2).toString();
+         Tenantuser user(query.value(0).toULongLong(), fname.toStdString(), lname.toStdString());
+         list.push_back(user);
+     }
+
+
+    return list;
+
+
+}

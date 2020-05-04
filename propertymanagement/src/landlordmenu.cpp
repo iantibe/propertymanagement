@@ -272,5 +272,22 @@ void Landlordmenu::addTenant(){
 
 void Landlordmenu::displayAllRents(){
     vector<Tenantuser> listoftenantusers;
+    Selectdata selectdata;
+    listoftenantusers = selectdata.getAllTenantUsers();
+    vector<Rent> listofrents;
+
+    for (int p  = 0; p < listoftenantusers.size(); p++){
+        cout << "-------------------------------------------" << endl;
+        cout << "Rent for: " << listoftenantusers[p].getFname() << " " << listoftenantusers[p].getLname() << endl;
+        listofrents.clear();
+        listofrents = selectdata.getRentsForTenant(listoftenantusers[p]);
+
+        for(int j = 0; j < listofrents.size(); j++){
+            cout << "Month: " << listofrents[j].getMonth() << endl;
+            cout << "Rent: "  <<listofrents[j].getRent() << endl;
+
+        }
+        cout << "------------------------------------------" << endl;
+    }
 
 }
