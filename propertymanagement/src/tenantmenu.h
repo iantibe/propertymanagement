@@ -18,6 +18,8 @@ private:
     void displayViewMail();
     void displayPayRent();
     void viewRentTransactions();
+    void sendMaintananceRequest();
+    void displayOpenMaintanceRequests();
 };
 
 #endif // TENANTMENU_H

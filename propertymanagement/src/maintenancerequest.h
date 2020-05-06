@@ -10,18 +10,18 @@ class Maintenancerequest{
 private:
     class Tenant tenant;
     time_t time;
-    Requesttype request;
+    int requesttype;
     string description;
 public:
     class Tenant getTenant();
     time_t getTime();
-    Requesttype getRequestType();
+    int getRequestType();
     string getDescription();
     void setTenant(class Tenant &);
     void setTime(time_t);
-    void setRequestType(Requesttype);
+    void setRequestType(int);
     void setDescription(string);
-    Maintenancerequest(class Tenant, time_t, Requesttype, string);
+    Maintenancerequest(class Tenant, time_t, int, string);
 };
 
 #endif // MAINTENANCEREQUEST_H

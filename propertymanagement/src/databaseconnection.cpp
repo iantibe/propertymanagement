@@ -51,7 +51,7 @@ void Databaseconnection::createDatabase(){
     query.exec("create table building (buildingid INTEGER PRIMARY KEY, onsitelaundry INTEGER, offstreetparking INTEGER, multifamily INTEGER, studio INTEGER, onebed INTEGER, twobed INTEGER, threebed INTEGER, rentcontrol INTEGER, address TEXT)");
     query.exec("create table requesttype (requesttypeid INTEGER PRIMARY KEY, type TEXT)");
     query.exec("create table rentalunit (rentalunitid INTEGER PRIMARY KEY, buildingid INTEGER, userid INTEGER, unitnumber TEXT, FOREIGN KEY (buildingid) REFERENCES building (buildingid), FOREIGN KEY (userid) REFERENCES user (id))");
-    query.exec("create table maintenancerequest (maintenancerequestid INTEGER PRIMARY KEY, rentalunitid INTEGER, time INTEGER(8), desc TEXT, requesttypeid INTEGER, FOREIGN KEY(requesttypeid) REFERENCES requesttype(requesttypeid), FOREIGN KEY (rentalunitid) REFERENCES rentalunit (rentalunitid)) ");
+    query.exec("create table maintenancerequest (maintenancerequestid INTEGER PRIMARY KEY, rentalunitid INTEGER, isdone INTEGER, time INTEGER(8), desc TEXT, requesttypeid INTEGER, FOREIGN KEY(requesttypeid) REFERENCES requesttype(requesttypeid), FOREIGN KEY (rentalunitid) REFERENCES rentalunit (rentalunitid)) ");
     query.exec("create table rent (rentid INTEGER PRIMARY KEY, rentalunitid INTEGER, month TEXT, amount REAL, FOREIGN KEY (rentalunitid) REFERENCES rentalunit (rentalunitid))");
 
     //populate user type
@@ -128,6 +128,8 @@ void Databaseconnection::createDatabase(){
 
     insertrequesttype.bindValue(":type", value15);
     insertrequesttype.exec();
+
+
 
     //testing
   // QSqlQuery querytest;

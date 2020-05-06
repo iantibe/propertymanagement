@@ -8,8 +8,8 @@ time_t Maintenancerequest::getTime(){
     return time;
 }
 
-Requesttype Maintenancerequest::getRequestType(){
-    return this->request;
+int Maintenancerequest::getRequestType(){
+    return this->requesttype;
 }
 
 string Maintenancerequest::getDescription(){
@@ -24,16 +24,16 @@ void Maintenancerequest::setTime(time_t t){
     this->time = t;
 }
 
-void Maintenancerequest::setRequestType(Requesttype rt){
-    this->request = rt;
+void Maintenancerequest::setRequestType(int rt){
+    this->requesttype = rt;
 }
 
 void Maintenancerequest::setDescription(string d){
     this->description = d;
 }
 
-Maintenancerequest::Maintenancerequest(class Tenant ten, time_t t, Requesttype rt, string des): tenant(ten){
+Maintenancerequest::Maintenancerequest(class Tenant ten, time_t t, int rt, string des): tenant(ten){
     this->time = t;
-    this->request = rt;
+    this->requesttype = rt;
     this->description = des;
 }

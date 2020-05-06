@@ -19,6 +19,9 @@ public:
     vector <Rent> getRentsForTenant(Tenantuser);
     int getRentalunitIdbyTenant(Tenantuser);
     vector<Tenantuser> getAllTenantUsers();
+    vector<string> getMaintenanceRequestTypes();
+    int getMaintenanceRequestTypeId(string);
+
 };
 
 

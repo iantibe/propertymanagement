@@ -106,7 +106,6 @@ void Insertdata::saveError(string e){
 void Insertdata::saveRent(Rent & rent){
 //    int userid;
     int unitid;
-    cout << "USer number: " << rent.getTenant().getUserid() << endl;
     QSqlQuery getrentalunit;
 
 
@@ -138,3 +137,5 @@ void Insertdata::saveRent(Rent & rent){
     qDebug() << test.value(2);
 
 }
+
+

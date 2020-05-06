@@ -201,3 +201,30 @@ vector<Tenantuser> Selectdata::getAllTenantUsers(){
 
 
 }
+
+
+vector<string> Selectdata::getMaintenanceRequestTypes(){
+   vector<string> list;
+    QSqlQuery query;
+    query.prepare("select type from requesttype");
+    query.exec();
+    qDebug() << query.lastError();
+
+
+    while(query.next()){
+    QString item = query.value(0).toString();
+    list.push_back(item.toStdString());
+    }
+
+    return list;
+}
+
+int Selectdata::getMaintenanceRequestTypeId(string tex){
+    QSqlQuery query;
+    query.prepare("select requesttypeid from requesttype where type = :text");
+    query.bindValue(":text", tex.c_str());
+    query.exec();
+    query.next();
+    return query.value(0).toULongLong();
+}
+

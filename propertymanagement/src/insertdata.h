@@ -9,6 +9,7 @@
 #include "errorhandler.h"
 #include "rent.h"
 
+
 class Insertdata : Databaseconnection {
 public:
     void saveBuilding(Building );
@@ -17,6 +18,7 @@ public:
     void saveUser(User &, string, string);
     void saveError(string);
     void saveRent(Rent &);
+
 
     Insertdata();
 };
