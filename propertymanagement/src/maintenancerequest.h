@@ -12,6 +12,7 @@ private:
     time_t time;
     int requesttype;
     string description;
+    int maintenancerequestid;
 public:
     class Tenant getTenant();
     time_t getTime();
@@ -22,6 +23,8 @@ public:
     void setRequestType(int);
     void setDescription(string);
     Maintenancerequest(class Tenant, time_t, int, string);
+    void setMaintenancerequestid(int);
+    int getMaintenancerequestid();
 };
 
 #endif // MAINTENANCEREQUEST_H

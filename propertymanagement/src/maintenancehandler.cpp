@@ -75,3 +75,37 @@ string Maintanancehandler::getMaintenanceTypeById(int id){
     QString item = query.value(0).toString();
     return item.toStdString();
 }
+
+void Maintanancehandler::updateMaintenanceRequest(int maintenancerequestid){
+    QSqlQuery query;
+    query.prepare("update maintenancerequest set isdone = :isdone where maintenancerequestid = :mrid");
+    //value of 1 in isdone marks as finished
+    query.bindValue(":isdone", 1);
+    query.bindValue(":mrid", maintenancerequestid);
+    query.exec();
+}
+
+vector<Maintenancerequest> Maintanancehandler::getMaintenanceRequestsByRentalunitId(int rentalunitid){
+    vector<Maintenancerequest> list;
+    QSqlQuery query;
+    Tenantuser user(0,"","");
+    Rentalunit rentalunit("","",false,false,false,0,0,0,0,false);
+    class Tenant tenant(user, rentalunit);
+
+    query.prepare("select time, desc, requesttypeid, maintenancerequestid from maintenancerequest where rentalunitid = :runit and isdone = :isdone");
+    query.bindValue(":runit" , rentalunitid);
+    //value of zero in isdone marks as unfinished
+    query.bindValue(":isdone", 0);
+    query.exec();
+    while(query.next()){
+        QString  desc = query.value(1).toString();
+    Maintenancerequest mr(tenant,query.value(0).toULongLong(), query.value(2).toULongLong(), desc.toStdString());
+    mr.setMaintenancerequestid(query.value(3).toULongLong());
+    list.push_back(mr);
+    }
+
+    return list;
+
+}
+
+

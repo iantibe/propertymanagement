@@ -23,7 +23,7 @@ const string exitWord = "exit";
 
 //landlord menu def
 
-const array<string, 9> landlordlist {"Add Teant", "Remove Tenant","Add Building","View Maintenance Request","Update Maintenance Request","View Message","Send Message","Display Rents from Tenants","Exit" };
+const array<string, 9> landlordlist {"Add Teant", "List Tenant","Add Building","View Maintenance Request","Update Maintenance Request","View Message","Send Message","Display Rents from Tenants","Exit" };
 
 //tenant menu def
 

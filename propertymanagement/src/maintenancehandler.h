@@ -15,6 +15,8 @@ public:
      vector<Maintenancerequest> getTenantUnfinishedRequests(Tenantuser &);
      vector<Maintenancerequest> getTenantFinishedRequests(Tenantuser &);
      string getMaintenanceTypeById(int);
+     void updateMaintenanceRequest(int);
+     vector<Maintenancerequest> getMaintenanceRequestsByRentalunitId(int);
 };
 
 #endif // MAINTENANCEHANDLER_H

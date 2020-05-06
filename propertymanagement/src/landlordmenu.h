@@ -19,6 +19,9 @@ private:
     void addBuilding();
     void addTenant();
     void displayAllRents();
+    void viewMaintenanceRequests();
+    void updateMaintenanceRequests();
+    void displayTenants();
 };
 
 #endif // LANDLORDMENU_H

@@ -5,6 +5,9 @@
 #include "selectdata.h"
 #include "building.h"
 #include "insertdata.h"
+#include "maintenancerequest.h"
+#include "maintenancehandler.h"
+#include "Tenantuser.h"
 
 using namespace std;
 
@@ -44,14 +47,16 @@ void Landlordmenu::display(){
             addTenant();
             break;
         case 2:
-
+            displayTenants();
             break;
         case 3:
             addBuilding();
             break;
         case 4:
+            viewMaintenanceRequests();
             break;
         case 5:
+            updateMaintenanceRequests();
             break;
         case 6:
             displayViewMail();
@@ -289,5 +294,72 @@ void Landlordmenu::displayAllRents(){
         }
         cout << "------------------------------------------" << endl;
     }
+
+}
+
+
+void Landlordmenu::viewMaintenanceRequests(){
+
+
+    cout << "Current Maintenance Requests:" << endl;
+    Selectdata selectdata;
+    Maintanancehandler mh;
+
+    vector<Tenantuser> tenantusers = selectdata.getAllTenantUsers();
+
+    for(int i = 0; i < tenantusers.size(); i++){
+        cout << "---------------------------------" << endl;
+        cout << "Tenant: " << tenantusers.at(i).getFname() << " " << tenantusers.at(i).getLname() << endl;
+
+        vector<Maintenancerequest> requests = mh.getTenantUnfinishedRequests(tenantusers.at(i));
+
+        if(requests.size() != 0){
+            for( int j = 0; j < requests.size(); j++){
+                cout << "Time Submitted: " << requests.at(j).getTime() << endl;
+                cout << "Issue Type: " << mh.getMaintenanceTypeById(requests.at(j).getRequestType()) << endl;
+                cout << "Description: " << requests.at(j).getDescription() << endl;
+            }
+        } else {
+                cout << "No Requests for " << tenantusers.at(i).getFname() << " " << tenantusers.at(i).getLname() << endl;
+        }
+
+        cout << "-----------------------------" << endl;
+    }
+}
+
+void Landlordmenu::updateMaintenanceRequests(){
+        Selectdata selectdata;
+        Maintanancehandler mh;
+        int userid;
+        int mrequestid;
+        cout << "Update Maintenance record to finished" << endl;
+        cout << "Select user" << endl;
+        vector<Tenantuser> tenantusers = selectdata.getAllTenantUsers();
+        for(int i = 0; i< tenantusers.size(); i++){
+            cout << i+1 << " " <<tenantusers.at(i).getFname() << " " << tenantusers.at(i).getLname() << endl;
+        }
+        cin >> userid;
+
+        int rentalunitid = selectdata.getRentalunitIdbyTenant(tenantusers.at(userid-1));
+
+      vector<Maintenancerequest> mrequest = mh.getMaintenanceRequestsByRentalunitId(rentalunitid);
+
+      for( int j = 0; j < mrequest.size(); j++){
+          cout << "Request id" << mrequest.at(j).getMaintenancerequestid() << endl;
+          cout << "Time Submitted: " << mrequest.at(j).getTime() << endl;
+          cout << "Issue Type: " << mh.getMaintenanceTypeById(mrequest.at(j).getRequestType()) << endl;
+          cout << "Description: " << mrequest.at(j).getDescription() << endl;
+      }
+
+
+       cout << "Select maintenance Request id" << endl;
+       cin >> mrequestid;
+
+       mh.updateMaintenanceRequest(mrequestid);
+
+       cout << "Request updated!" << endl;
+}
+
+void Landlordmenu::displayTenants(){
 
 }

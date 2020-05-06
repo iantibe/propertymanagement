@@ -36,4 +36,13 @@ Maintenancerequest::Maintenancerequest(class Tenant ten, time_t t, int rt, strin
     this->time = t;
     this->requesttype = rt;
     this->description = des;
+    maintenancerequestid = 0;
+}
+
+int Maintenancerequest::getMaintenancerequestid(){
+    return maintenancerequestid;
+}
+
+void Maintenancerequest::setMaintenancerequestid(int id){
+    this->maintenancerequestid = id;
 }
