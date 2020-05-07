@@ -3,7 +3,6 @@
 #include <cctype>
 
 void Menu::drawmenu(vector<Menuitem> list){
-
         for(int i = 0; i <list.size(); i++){
             cout << "         " << i+1 << ". " << list.at(i).getItem() << endl;
         }
@@ -18,7 +17,6 @@ int Menu::selection(int sel){
     while(!exitFlag){
         cout << "Enter Selection: ";
         cin >> preCheckedEntry;
-
         for(int i = 0; i < preCheckedEntry.size(); i++){
             if(isdigit(preCheckedEntry[i]) == false){
                 isDigitFlag = false;

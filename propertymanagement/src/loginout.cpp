@@ -3,8 +3,6 @@
 #include "constants.h"
 #include "Tenantuser.h"
 
-
-
 Loginout::Loginout(){
 
 }
@@ -37,10 +35,7 @@ User Loginout::init_Loginout() {
                 cout << "Invalid Username or Password" << endl;
             }
         }
-
-
-
   }
 
-        return outputUser;
+   return outputUser;
 }

@@ -11,7 +11,6 @@ public:
     void display() override;
     User getUser();
     void setUser(User);
-
 private:
     void displaySendMail();
     User currentUser;

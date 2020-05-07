@@ -8,10 +8,7 @@
 
 class Rentaction : private Databaseconnection {
 public:
-    void payRent(Rent);
-    void viewRentDetail(Tenantuser); //for each tenant
-    vector<Rent> viewUnpaidRents();
-    Rentaction();
+   Rentaction();
 };
 
 #endif // RENTACTION_H

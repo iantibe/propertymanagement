@@ -6,7 +6,6 @@
 
 class Messagemenu : public Menu {
 public:
-  vector<Menuitem> buildMessageMenu();
   Messagemenu(string);
   void display() override;
 };

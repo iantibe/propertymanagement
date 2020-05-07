@@ -11,7 +11,6 @@ private:
 public:
     Usertype getUsertype();
     Tenantuser(int, string, string);
-
 };
 
 #endif // TENANTUSER_H

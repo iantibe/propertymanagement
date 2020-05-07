@@ -5,7 +5,6 @@
 
 class Updatedata : Databaseconnection {
 public:
-
 };
 
 #endif // UPDATEDATA_H

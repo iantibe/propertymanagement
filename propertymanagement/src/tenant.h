@@ -13,7 +13,6 @@ public:
     void setUser(Tenantuser &);
     void setRentalunit(Rentalunit &);
     Rentalunit getRentalunit();
-
     Tenant(Tenantuser &, Rentalunit );
 };
 

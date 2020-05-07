@@ -9,7 +9,6 @@ class Messagehandler : private Databaseconnection {
 public:
     void sendMessage(Message &);
     vector<Message> getUnreadMessages(User &);
-    void deleteMessage(Message &);
     vector<Message> listReadMessages(User &);
     void updateReadStatus(int);
 };

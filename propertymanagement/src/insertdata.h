@@ -13,7 +13,6 @@
 class Insertdata : Databaseconnection {
 public:
     void saveBuilding(Building );
-    void saveRentalUnit(Rentalunit &);
     void saveTenant(class Tenant &);
     void saveUser(User &, string, string);
     void saveError(string);

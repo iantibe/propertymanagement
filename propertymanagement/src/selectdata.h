@@ -6,6 +6,7 @@
 #include "building.h"
 #include "rent.h"
 #include "Tenantuser.h"
+#include "tenant.h"
 
 class Selectdata : Databaseconnection{
 public:
@@ -21,10 +22,9 @@ public:
     vector<Tenantuser> getAllTenantUsers();
     vector<string> getMaintenanceRequestTypes();
     int getMaintenanceRequestTypeId(string);
+    vector<class Tenant> getCurrentTenants();
+    string getAddressFromBuildingId(int);
 
 };
-
-
-
 
 #endif // SELECTDATA_H

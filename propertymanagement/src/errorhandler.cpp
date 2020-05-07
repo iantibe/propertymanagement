@@ -8,7 +8,6 @@ void Errorhandler::saveError(string e){
     query.bindValue(":desc",e.c_str());
     query.bindValue(":time", t);
     query.exec();
-
 }
 
 vector<Error> Errorhandler::getErrors(){
@@ -24,6 +23,5 @@ vector<Error> Errorhandler::getErrors(){
         error.setTime(query.value(1).toULongLong());
         list.push_back(error);
     }
-
     return list;
 }

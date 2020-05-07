@@ -1,18 +1,12 @@
 #include "password.h"
 #include "selectdata.h"
 
-
 Password::Password(){
-
-}
-
-void Password::changePassword(string u, string pw){
 
 }
 
 bool Password::validatePassword(string u, string pw){
     QSqlQuery query;
-
     query.prepare("select uname, password from user where uname =:uname and password = :password");
     query.bindValue(":uname", u.c_str() );
     query.bindValue(":password", pw.c_str());
@@ -28,7 +22,4 @@ bool Password::validatePassword(string u, string pw){
     }
 }
 
-bool Password::checkForValidNewPassword(string pw){
-
-}
 

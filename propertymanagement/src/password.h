@@ -11,11 +11,8 @@ using namespace std;
 
 class Password {
 public:
-    void changePassword(string, string);
     bool validatePassword(string, string);
     Password();
-private:
-    bool checkForValidNewPassword(string);
 };
 
 #endif // PASSWORD_H

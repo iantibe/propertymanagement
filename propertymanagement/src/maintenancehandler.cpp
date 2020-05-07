@@ -1,14 +1,6 @@
 #include "maintenancehandler.h"
 #include "selectdata.h"
 
-vector<Maintenancerequest> Maintanancehandler::getCurrentRequests(){
-
-}
-
-void Maintanancehandler::compleateRequest(Maintenancerequest &){
-
-}
-
 void Maintanancehandler::submitRequest(Maintenancerequest & mr, int rentalunitid){
     QSqlQuery query;
     query.prepare("insert into maintenancerequest (rentalunitid, isdone, time, desc, requesttypeid) values(?,?,?,?,?)");
@@ -18,7 +10,6 @@ void Maintanancehandler::submitRequest(Maintenancerequest & mr, int rentalunitid
     query.addBindValue(mr.getDescription().c_str());
     query.addBindValue(mr.getRequestType());
     query.exec();
-    qDebug() << query.lastError();
 }
 
 Maintanancehandler::Maintanancehandler(){
@@ -65,7 +56,6 @@ vector<Maintenancerequest> Maintanancehandler::getTenantFinishedRequests(Tenantu
     return list;
 }
 
-
 string Maintanancehandler::getMaintenanceTypeById(int id){
     QSqlQuery query;
     query.prepare("select type from requesttype where requesttypeid = :requesttypeid");
@@ -91,7 +81,6 @@ vector<Maintenancerequest> Maintanancehandler::getMaintenanceRequestsByRentaluni
     Tenantuser user(0,"","");
     Rentalunit rentalunit("","",false,false,false,0,0,0,0,false);
     class Tenant tenant(user, rentalunit);
-
     query.prepare("select time, desc, requesttypeid, maintenancerequestid from maintenancerequest where rentalunitid = :runit and isdone = :isdone");
     query.bindValue(":runit" , rentalunitid);
     //value of zero in isdone marks as unfinished
@@ -99,13 +88,11 @@ vector<Maintenancerequest> Maintanancehandler::getMaintenanceRequestsByRentaluni
     query.exec();
     while(query.next()){
         QString  desc = query.value(1).toString();
-    Maintenancerequest mr(tenant,query.value(0).toULongLong(), query.value(2).toULongLong(), desc.toStdString());
-    mr.setMaintenancerequestid(query.value(3).toULongLong());
-    list.push_back(mr);
+        Maintenancerequest mr(tenant,query.value(0).toULongLong(), query.value(2).toULongLong(), desc.toStdString());
+        mr.setMaintenancerequestid(query.value(3).toULongLong());
+        list.push_back(mr);
     }
-
     return list;
-
 }
 
 

@@ -16,27 +16,20 @@ void Messagehandler::sendMessage(Message & m){
         db.open();
         QSqlQuery sendmail;
         sendmail.prepare("INSERT INTO message (sendid, receiveid, subject, time , message, read) VALUES (:sendid, :receiveid, :subject, :time, :message, :read)");
-
         sendmail.bindValue(":sendid",m.getSender().getUserid());
         sendmail.bindValue(":receiveid",m.getReceiver().getUserid());
         sendmail.bindValue(":subject", m.getSubject().c_str());
         sendmail.bindValue(":time", m.getTimeDateSent());
         sendmail.bindValue(":message", m.getMessage().c_str());
         if(m.getIsRead() == true){
-        sendmail.bindValue(":read", 1);
+            sendmail.bindValue(":read", 1);
         }else{
-        sendmail.bindValue(":read", 0);
+            sendmail.bindValue(":read", 0);
         }
         sendmail.exec();
-
-
     } catch (exception e) {
-
         cout << "An error occured while sending your mail. IT has been notified. Please try again." << endl;
-
     }
-
-
 }
 
 vector<Message> Messagehandler::getUnreadMessages(User & u){
@@ -47,8 +40,6 @@ vector<Message> Messagehandler::getUnreadMessages(User & u){
         query.bindValue(":send" , u.getUserid());
         query.exec();
 
-
-
         while(query.next()){
             User receive = selectdata.getUserById(query.value(2).toULongLong());
             Message m(u,receive,query.value(4).toULongLong());
@@ -58,16 +49,9 @@ vector<Message> Messagehandler::getUnreadMessages(User & u){
             QString subject = query.value(3).toString();
             m.setSubject(subject.toStdString());
             m.setMessageId(query.value(0).toULongLong());
-
             list.push_back(m);
         }
-
         return list;
-
-}
-
-void Messagehandler::deleteMessage(Message & m){
-
 }
 
 vector<Message> Messagehandler::listReadMessages(User & u){
@@ -77,9 +61,6 @@ vector<Message> Messagehandler::listReadMessages(User & u){
     query.prepare("select messageid, sendid, receiveid, subject, time, message, read from message where read = 1 and sendid = :send");
     query.bindValue(":send" , u.getUserid());
     query.exec();
-
-
-
     while(query.next()){
         User receive = selectdata.getUserById(query.value(2).toULongLong());
         Message m(u,receive,query.value(4).toULongLong());
@@ -89,10 +70,8 @@ vector<Message> Messagehandler::listReadMessages(User & u){
         QString subject = query.value(3).toString();
         m.setSubject(subject.toStdString());
         m.setMessageId(query.value(0).toULongLong());
-
         list.push_back(m);
     }
-
     return list;
 }
 

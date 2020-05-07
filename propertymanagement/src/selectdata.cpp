@@ -7,20 +7,15 @@ using namespace std;
 User Selectdata::getUserbyScreenName(string nam){
    try{
 
-    QSqlQuery getdata;
-
-    getdata.prepare("select fname, lname, id from user where uname = :name");
-    getdata.bindValue(":name", nam.c_str() );
-    getdata.exec();
-
-    getdata.next();
-
-    QString lname = getdata.value(1).toString();
-    QString fname = getdata.value(0).toString();
-
-    User data(getdata.value(2).toULongLong(), fname.toStdString(),lname.toStdString());
-    return data;
-
+        QSqlQuery getdata;
+        getdata.prepare("select fname, lname, id from user where uname = :name");
+        getdata.bindValue(":name", nam.c_str() );
+        getdata.exec();
+        getdata.next();
+        QString lname = getdata.value(1).toString();
+        QString fname = getdata.value(0).toString();
+        User data(getdata.value(2).toULongLong(), fname.toStdString(),lname.toStdString());
+        return data;
     }catch (exception e){
         Errorhandler error;
         error.saveError("getUserbyScreenNAme method in selectdata.cpp");
@@ -28,14 +23,13 @@ User Selectdata::getUserbyScreenName(string nam){
         User u(0,"","");
         return u;
     }
-
 }
 
 Selectdata::Selectdata(){
 
 }
 
-    int Selectdata::getUserType(User u){
+int Selectdata::getUserType(User u){
     QSqlQuery getdata;
 
     try{
@@ -44,10 +38,8 @@ Selectdata::Selectdata(){
         getdata.bindValue(":lname", u.getLname().c_str());
         getdata.exec();
         getdata.next();
-
-    int data = getdata.value(0).toULongLong();
-
-    return data;
+        int data = getdata.value(0).toULongLong();
+        return data;
 
     } catch (exception e){
         Errorhandler error;
@@ -68,9 +60,9 @@ Selectdata::Selectdata(){
         QString fname = query.value(1).toString();
         QString lname = query.value(2).toString();
 
-    User u(query.value(0).toULongLong(), fname.toStdString() , lname.toStdString());
+        User u(query.value(0).toULongLong(), fname.toStdString() , lname.toStdString());
 
-    return u;
+        return u;
      } catch (exception e){
          Errorhandler error;
          error.saveError("getUserById method in selectdata.cpp");
@@ -83,22 +75,21 @@ Selectdata::Selectdata(){
 vector<User> Selectdata::getUsers(){
 
     try {
-    vector<User> list;
-     QSqlQuery query;
-     query.prepare("select id, fname, lname from user");
-     query.exec();
+         vector<User> list;
+         QSqlQuery query;
+         query.prepare("select id, fname, lname from user");
+         query.exec();
 
-     while(query.next()){
-         QString fname = query.value(1).toString();
-         QString lname = query.value(2).toString();
-         User user(query.value(0).toULongLong(), fname.toStdString(), lname.toStdString());
-         list.push_back(user);
-     }
+         while(query.next()){
+             QString fname = query.value(1).toString();
+             QString lname = query.value(2).toString();
+             User user(query.value(0).toULongLong(), fname.toStdString(), lname.toStdString());
+             list.push_back(user);
+         }
 
-     return list;
+        return list;
 
     }catch (exception e){
-
         Errorhandler error;
         error.saveError("getusers method in selectdata.cpp");
         cout << "An error has occured, and IT has been notified. Please try again.";
@@ -109,20 +100,20 @@ vector<User> Selectdata::getUsers(){
 
 vector<Building> Selectdata::getListOfBuildings(){
     try{
-    QSqlQuery query;
-    vector<Building> list;
+        QSqlQuery query;
+        vector<Building> list;
 
-    query.prepare("select buildingid, onsitelaundry, offstreetparking, multifamily, studio, onebed, twobed, threebed , rentcontrol, address from building");
-    query.exec();
+        query.prepare("select buildingid, onsitelaundry, offstreetparking, multifamily, studio, onebed, twobed, threebed , rentcontrol, address from building");
+        query.exec();
 
-    while (query.next()){
-    QString add = query.value(9).toString();
-    Building building(add.toStdString(),query.value(1).toULongLong(),query.value(2).toLongLong(),query.value(3).toLongLong(),query.value(4).toULongLong(),query.value(5).toULongLong(),query.value(6).toULongLong(),query.value(7).toULongLong(), query.value(8).toULongLong());
-    building.setBuildingId(query.value(0).toULongLong());
-    list.push_back(building);
-    }
+        while (query.next()){
+            QString add = query.value(9).toString();
+            Building building(add.toStdString(),query.value(1).toULongLong(),query.value(2).toLongLong(),query.value(3).toLongLong(),query.value(4).toULongLong(),query.value(5).toULongLong(),query.value(6).toULongLong(),query.value(7).toULongLong(), query.value(8).toULongLong());
+            building.setBuildingId(query.value(0).toULongLong());
+            list.push_back(building);
+            }
 
-    return list;
+        return list;
 
     } catch (exception e){
         Errorhandler err;
@@ -142,18 +133,15 @@ int Selectdata::getUserId(string fnam, string lnam){
     query.exec();
     query.next();
     return query.value(0).toULongLong();
-
 }
 
 vector<Rent> Selectdata::getRentsForTenant(Tenantuser t){
     vector<Rent> list;
     int tenantid = getRentalunitIdbyTenant(t);
-
     QSqlQuery query;
     query.prepare("select month, amount from rent where rentalunitid = :rentalunitid");
     query.bindValue(":rentalunitid", tenantid);
     query.exec();
-
     while(query.next()){
         QString month = query.value(0).toString();
         Rent rent(t,query.value(1).toULongLong(),month.toStdString());
@@ -161,7 +149,6 @@ vector<Rent> Selectdata::getRentsForTenant(Tenantuser t){
     }
 
     return list;
-
 }
 
 int Selectdata::getRentalunitIdbyTenant(Tenantuser t){
@@ -181,41 +168,30 @@ vector<Tenantuser> Selectdata::getAllTenantUsers(){
     gettype.exec();
     gettype.next();
     type = gettype.value(0).toULongLong();
-
-
     vector<Tenantuser> list;
-     QSqlQuery query;
-     query.prepare("select id, fname, lname from user where type = :type");
-     query.bindValue(":type", type);
-     query.exec();
-
-     while(query.next()){
+    QSqlQuery query;
+    query.prepare("select id, fname, lname from user where type = :type");
+    query.bindValue(":type", type);
+    query.exec();
+    while(query.next()){
          QString fname = query.value(1).toString();
          QString lname = query.value(2).toString();
          Tenantuser user(query.value(0).toULongLong(), fname.toStdString(), lname.toStdString());
          list.push_back(user);
-     }
-
-
+    }
     return list;
-
-
 }
-
 
 vector<string> Selectdata::getMaintenanceRequestTypes(){
    vector<string> list;
     QSqlQuery query;
     query.prepare("select type from requesttype");
     query.exec();
-    qDebug() << query.lastError();
-
 
     while(query.next()){
-    QString item = query.value(0).toString();
-    list.push_back(item.toStdString());
+        QString item = query.value(0).toString();
+        list.push_back(item.toStdString());
     }
-
     return list;
 }
 
@@ -228,3 +204,30 @@ int Selectdata::getMaintenanceRequestTypeId(string tex){
     return query.value(0).toULongLong();
 }
 
+vector<class Tenant> Selectdata::getCurrentTenants(){
+    vector<class Tenant> list;
+    QSqlQuery query;
+    query.prepare("select id, fname, lname, buildingid, unitnumber from rentalunit inner join user on user.id = rentalunit.userid");
+    query.exec();
+    while(query.next()){
+        QString fname = query.value(1).toString();
+        QString lnam = query.value(2).toString();
+        Tenantuser tenantuser(query.value(0).toULongLong(),fname.toStdString(),lnam.toStdString());
+        string address = getAddressFromBuildingId(query.value(3).toULongLong());
+        QString unitnumber = query.value(4).toString();
+           Rentalunit rentalunit(unitnumber.toStdString(),address,false,false,false,0,0,0,0,false);
+        class Tenant tenant(tenantuser, rentalunit);
+        list.push_back(tenant);
+    }
+    return list;
+}
+
+string Selectdata::getAddressFromBuildingId(int id){
+    QSqlQuery query;
+    query.prepare("select address from building where buildingid = :bi");
+    query.bindValue(":bi", id);
+    query.exec();
+    query.next();
+    QString ad = query.value(0).toString();
+    return ad.toStdString();
+}

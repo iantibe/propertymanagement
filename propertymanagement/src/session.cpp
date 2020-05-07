@@ -7,7 +7,6 @@ using namespace std;
 
 void Session::init_Session(){
     int usertype;
-
     Selectdata instance;
 
     try {
@@ -30,9 +29,6 @@ void Session::init_Session(){
         errorhandler.saveError(e.what());
         cout << "An Error has occured. IT has been notified. Unable to login at this time.";
     }
-
-
-
 }
 
 Session::Session(User & user): currentUser(user){

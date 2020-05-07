@@ -26,11 +26,8 @@ Adminmenu::Adminmenu(string t) : Menu(t){
 }
 
 void Adminmenu::display(){
-
     vector<Menuitem> list = buildAdminMenu();
-
     bool exitFlag = false;
-
     int sel;
 
     while(!exitFlag){
@@ -48,6 +45,9 @@ void Adminmenu::display(){
         case 3:
             exitFlag = true;
             break;
+        default:
+            cout << "Please enter a valid menuitem" << endl;
+            break;
 
         }
 
@@ -56,10 +56,8 @@ void Adminmenu::display(){
 }
 
 void Adminmenu::displayErrorReport(){
-
     Errorhandler errorhandler;
     vector<Error> list = errorhandler.getErrors();
-
     cout << "Current Errors: " << endl;
 
     for(int i = 0; i < list.size(); i++){

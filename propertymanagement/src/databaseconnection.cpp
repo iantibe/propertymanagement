@@ -128,25 +128,6 @@ void Databaseconnection::createDatabase(){
 
     insertrequesttype.bindValue(":type", value15);
     insertrequesttype.exec();
-
-
-
-    //testing
-  // QSqlQuery querytest;
-  //  querytest.prepare("SELECT fname, lname FROM user");
-
-  //  if(querytest.exec()){
-   //     cout << "exec ok";
-   // }
-
-   // while(querytest.next()){
-
-   // QString st2 = querytest.value(0).toString();
-    //QString st = querytest.value(1).toString();
-
-     //cout << st.toStdString();
-     //cout << st2.toStdString();
-   // }
 }
 
 
